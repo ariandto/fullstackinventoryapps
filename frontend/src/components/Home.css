@@ -1,0 +1,22 @@
+/* Home.css */
+
+.summary-card, .comparison-card, .comparison-chart {
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+  }
+  
+  .summary-card:hover, .comparison-card:hover, .comparison-chart:hover {
+    transform: scale(1.05) rotateX(10deg) rotateY(10deg);
+  }
+  
+  .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Optional: Add some spacing around the icon */
+  .summary-card .icon, .comparison-card .icon, .comparison-chart .icon {
+    display: block;
+    margin: 0 auto 10px;
+  }
+  
