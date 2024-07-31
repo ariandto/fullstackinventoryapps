@@ -82,7 +82,7 @@ const TransaksiMasuk = () => {
         } catch (error) {
             console.error('Error fetching transactions:', error);
             if (retryCount > 0) {
-                console.log(`Retrying... Attempts left: ${retryCount}`);
+                //console.log(`Retrying... Attempts left: ${retryCount}`);
                 setTimeout(() => getTransaksi(retryCount - 1), 3000); // Retry after 3 seconds
             } else {
                 setError('Failed to fetch transactions. Please try again later.');

@@ -8,19 +8,27 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
-    const [role, setRole] = useState('Staff'); // Default role
+    const [role, setRole] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
+        if (!name || !email || !password || !confPassword || !role) {
+            setMsg('All fields are required');
+            return;
+        }
+        if (password !== confPassword) {
+            setMsg('Passwords do not match');
+            return;
+        }
         try {
             await axios.post(`${apiurl}/users`, {
-                name: name,
-                email: email,
-                password: password,
-                confPassword: confPassword,
-                role: role
+                name,
+                email,
+                password,
+                confPassword,
+                role
             });
             navigate("/");
         } catch (error) {
@@ -98,6 +106,7 @@ const Register = () => {
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
                         >
+                            <option value="" disabled>Pilih Role Hak Akses</option>
                             <option value="Admin">Admin</option>
                             <option value="User">User</option>
                         </select>

@@ -51,7 +51,7 @@ const Navbar = () => {
             await axios.delete(`${apiurl}/logout`);
             navigate("/");
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     }
 
@@ -118,6 +118,8 @@ const Navbar = () => {
                                             >
                                                 List Barang Masuk
                                             </a>
+                                            {role !== 'Staff' && role !== 'User' && (
+                                                <>
                                            
                                                     <a
                                                         onClick={() => navigate('/formbarangmasuk')}
@@ -135,6 +137,8 @@ const Navbar = () => {
                                                     >
                                                         Edit Barang Masuk
                                                     </a>
+                                                    </>
+                                            )}
                                         </div>
                                     </div>
                                 )}
